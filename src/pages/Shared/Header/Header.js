@@ -1,7 +1,16 @@
+import { signOut } from 'firebase/auth'
 import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
+import auth from '../../../firebase.init'
 
 const Header = () => {
+  const [user] = useAuthState(auth)
+
+  const handleSignOut = () => {
+    signOut(auth)
+  }
+
   return (
     <div className='md:flex justify-around mt-8'>
       <div className='text-4xl text-center'>
@@ -12,9 +21,16 @@ const Header = () => {
         <Link to='/home'>HOME</Link>
         <Link to='/blog'>BLOG</Link>
         <Link to='/about'>ABOUT</Link>
-        <Link className='text-green-700' to='/login'>
-          LOGIN
-        </Link>
+
+        {user ? (
+          <button onClick={handleSignOut} className='text-green-700'>
+            LOGOUT
+          </button>
+        ) : (
+          <Link className='text-green-700' to='/login'>
+            LOGIN
+          </Link>
+        )}
       </div>
     </div>
   )

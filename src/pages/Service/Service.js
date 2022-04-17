@@ -1,8 +1,14 @@
 import React from 'react'
 import { ArrowCircleRightIcon } from '@heroicons/react/solid'
+import { useNavigate } from 'react-router-dom'
 
 const Service = ({ service }) => {
   const { name, price, img, benefits } = service
+  const navigate = useNavigate()
+  const handleGetNow = () => {
+    navigate('/checkout')
+  }
+
   return (
     <div className='flex justify-center m-5 relative'>
       <div className='rounded-lg shadow-lg bg-white max-w-sm'>
@@ -22,7 +28,7 @@ const Service = ({ service }) => {
           </ol>
           <div className='flex justify-center absolute bottom-0 left-1/3'>
             <button
-              type='button'
+              onClick={handleGetNow}
               className='inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'
             >
               Get Now

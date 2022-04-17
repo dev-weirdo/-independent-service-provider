@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import SocialLogin from '../../SocialLogin/SocialLogin'
 
 const Login = () => {
+
   return (
     <div className='mx-auto my-16 p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700'>
       <form className='space-y-6'>
@@ -19,7 +22,7 @@ const Login = () => {
             name='email'
             id='email'
             className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
-            placeholder='name@company.com'
+            placeholder='abc@xyz.com'
             required=''
           ></input>
         </div>
@@ -53,16 +56,12 @@ const Login = () => {
         >
           Login to your account
         </button>
-        <div className='text-sm font-medium text-gray-500 dark:text-gray-300'>
+        <div className='text-sm font-medium text-gray-500 dark:text-gray-300 flex justify-between items-center'>
           Not registered?
-          <p
-            href='#'
-            className='text-blue-700 hover:underline dark:text-blue-500'
-          >
-            Create account
-          </p>
+          <Link to='/register' className='text-blue-700 hover:underline dark:text-blue-500'>Create Account</Link>
         </div>
       </form>
+      <SocialLogin></SocialLogin>
     </div>
   )
 }
