@@ -1,0 +1,30 @@
+[
+    {
+        "id" : 1,
+        "name" : "Package 1",
+        "price" : 3500,
+        "img" : "https://i.ibb.co/sv19C8b/1.jpg",
+        "benefits" : ["6hrs Coverage", "Bridal Session", "Engagement Session", "Edited Digital Images", "Online Gallery"]
+    },
+    {
+        "id" : 2,
+        "name" : "Package 2",
+        "price" : 4500,
+        "img" : "https://i.ibb.co/zQjbysx/2.jpg",
+        "benefits" : ["8hrs Coverage", "Bridal Session", "Engagement Session", "Canvas Print", "Edited Digital Images", "Online Gallery"]
+    },
+    {
+        "id" : 3,
+        "name" : "Package 3",
+        "price" : 5500,
+        "img" : "https://i.ibb.co/Kh37Bb0/3.jpg",
+        "benefits" : ["8hrs Coverage", "Bridal Session", "Engagement Session", "Canvas Print", "Custom 8x8 Album", "Edited Digital Images", "Online Gallery"]
+    },
+    {
+        "id" : 4,
+        "name" : "Package 4",
+        "price" : 6500,
+        "img" : "https://i.ibb.co/4R3J4sT/4.jpg",
+        "benefits" : ["6hrs Coverage", "Bridal Session", "Engagement Session", "Canvas Print", "2 Parent Albums", "Custom 8x8 Album", "Edited Digital Images", "Online Gallery"]
+    }
+]
