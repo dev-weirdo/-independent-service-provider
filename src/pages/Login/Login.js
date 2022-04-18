@@ -1,18 +1,34 @@
-import React from 'react'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
-import { Link } from 'react-router-dom'
+import React, { useRef } from 'react'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import SocialLogin from '../../SocialLogin/SocialLogin'
 
 
 const Login = () => {
-  const [createUserWithEmailAndPassword,
+  const [
+    signInWithEmailAndPassword,
     user,
     loading,
-    error] = useCreateUserWithEmailAndPassword(auth);
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const emailRef = useRef('')
+  const passwordRef = useRef('')
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email, password);
+  }
+
+  const from = location.state?.from?.pathname || '/'
+
+  if (user) {
+    navigate(from, { replace: true })
   }
   return (
     <div className='mx-auto my-16 p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700'>
@@ -28,6 +44,7 @@ const Login = () => {
             Your email
           </label>
           <input
+            ref={emailRef}
             type='email'
             name='email'
             id='email'
@@ -44,6 +61,7 @@ const Login = () => {
             Your password
           </label>
           <input
+            ref={passwordRef}
             type='password'
             name='password'
             id='password'
