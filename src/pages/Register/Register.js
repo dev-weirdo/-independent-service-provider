@@ -77,7 +77,7 @@ const Register = () => {
                         id='email'
                         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
                         placeholder='abc@xyz.com'
-                        required=''
+                        required
                     ></input>
                 </div>
                 <div>
@@ -94,7 +94,7 @@ const Register = () => {
                         id='password'
                         placeholder='••••••••'
                         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
-                        required=''
+                        required
                     ></input>
                 </div>
                 <div>
@@ -111,7 +111,7 @@ const Register = () => {
                         id='confirmPassword'
                         placeholder='••••••••'
                         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white'
-                        required=''
+                        required
                     ></input>
                 </div>
                 <p className='text-red-700 text-center text-xl'>{passError}</p>
