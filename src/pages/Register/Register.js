@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import SocialLogin from '../../SocialLogin/SocialLogin';
+import SocialLogin from '../../pages/SocialLogin/SocialLogin';
 
 const Register = () => {
     const [createUserWithEmailAndPassword,

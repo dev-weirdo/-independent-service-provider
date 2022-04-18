@@ -1,6 +1,6 @@
 import React from 'react'
-import glogo from '../../src/assets/google.png'
-import auth from '../../src/firebase.init'
+import glogo from '../../assets/google.png'
+import auth from '../../firebase.init'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useLocation, useNavigate } from 'react-router-dom'
 
