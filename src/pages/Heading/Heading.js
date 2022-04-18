@@ -2,6 +2,7 @@ import React from 'react'
 import banner from '../../assets/banner.jpg'
 
 const Heading = () => {
+
   return (
     <div
       style={{ backgroundImage: `url(${banner})` }}

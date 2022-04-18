@@ -14,20 +14,14 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth)
   const navigate = useNavigate();
   const location = useLocation();
   const emailRef = useRef('')
   const passwordRef = useRef('')
+  const from = location.state?.from?.pathname || '/'
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password);
-  }
-
-  const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth)
 
   const handlePasswordReset = async () => {
     const email = emailRef.current.value;
@@ -41,17 +35,11 @@ const Login = () => {
   }
 
 
-
-  const from = location.state?.from?.pathname || '/'
-
-  if (user) {
-    navigate(from, { replace: true })
-  }
-
   let resetErrorMsg;
   if (resetError) {
     resetErrorMsg = <p className='text-red-700 text-xl text-center'>{resetError.message}</p>
   }
+
 
   if (loading || sending) {
     return (
@@ -65,12 +53,26 @@ const Login = () => {
       </>
     )
   }
+  if (user) {
+    navigate(from, { replace: true })
+  }
+
+
+
   let errMsg;
   if (error) {
     errMsg = <div>
       <p className='text-red-600 border-2 rounded-md my-2 py-1 px-2'>Error: {error.message}</p>
     </div>
 
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email, password);
   }
 
   return (
@@ -129,6 +131,7 @@ const Login = () => {
           <Link to='/register' className='text-blue-700 hover:underline dark:text-blue-500'>Create Account</Link>
         </div>
       </form>
+
       <SocialLogin></SocialLogin>
       <ToastContainer></ToastContainer>
     </div>
