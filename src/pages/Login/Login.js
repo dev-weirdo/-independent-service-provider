@@ -1,12 +1,22 @@
 import React from 'react'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
+import auth from '../../firebase.init'
 import SocialLogin from '../../SocialLogin/SocialLogin'
 
-const Login = () => {
 
+const Login = () => {
+  const [createUserWithEmailAndPassword,
+    user,
+    loading,
+    error] = useCreateUserWithEmailAndPassword(auth);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+  }
   return (
     <div className='mx-auto my-16 p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700'>
-      <form className='space-y-6'>
+      <form className='space-y-6' onSubmit={handleLogin}>
         <h5 className='text-xl font-medium text-gray-900 dark:text-white'>
           Sign in to our platform
         </h5>
